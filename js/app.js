@@ -48,15 +48,10 @@ function populateDropDown() {
   }
 }
 
-
-$(document).ready(function () {
-  $('#selector').on('change', selectorHandler);
-});
-
-
-
+$('#selector').on('change', selectorHandler);
 
 function selectorHandler(e) {
   $('img').hide();
   $(`.${e.target.options[e.target.selectedIndex].value}`).show();
+  console.log(e.target.options);
 }
