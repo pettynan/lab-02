@@ -1,0 +1,22 @@
+img {
+  height: 300px;
+  width: 300px;
+  margin: 15px;
+}
+
+div {
+  margin: 0 auto;
+  text-align: center;
+}
+
+* {
+  background-color: tan;
+}
+
+h1 {
+  text-align: center;
+  background-color: brown;
+  color: tan;
+  font-size: 4em;
+  padding: 15px;
+}
