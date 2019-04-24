@@ -2,8 +2,8 @@
 let dataArray = [];
 let keywordArray = [];
 
-$.getJSON('../data/page-1.json', function(element) {
-  for (let i = 0 ; i < element.length ; i++) {
+$.getJSON('../data/page-1.json', function (element) {
+  for (let i = 0; i < element.length; i++) {
 
     let dataObject = {};
 
@@ -16,8 +16,6 @@ $.getJSON('../data/page-1.json', function(element) {
     dataArray[i] = dataObject;
   }
 
-
-
   populateHTML();
   populateDropDown();
 
@@ -28,7 +26,7 @@ $.getJSON('../data/page-1.json', function(element) {
 
 
 function populateHTML() {
-  for (let i = 0 ; i < dataArray.length ; i++) {
+  for (let i = 0; i < dataArray.length; i++) {
 
     let imageString = `<img src="${dataArray[i].image_url}" title="${dataArray[i].title}" alt="${dataArray[i].description}" class="${dataArray[i].keyword}"/>`;
     $('#images').append(imageString);
@@ -44,14 +42,14 @@ function populateDropDown() {
   // TODO: fix behavior when an animal is selected and then 'Select a Filter' is reselected.
   $('#selector').append(`<option value="Select a Filter">Select a Filter</option>`);
 
-  for (let i = 0 ; i < keywordArray.length ; i++) {
+  for (let i = 0; i < keywordArray.length; i++) {
     let optionString = `<option value="${keywordArray[i]}">${keywordArray[i]}</option>`;
     $('#selector').append(optionString);
   }
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
   $('#selector').on('change', selectorHandler);
 });
 
