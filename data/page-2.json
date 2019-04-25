@@ -35,7 +35,7 @@
     "horns": 3
   },
   {
-    "image_url": "https://s25878.pcdn.co/wp-content/uploads/2017/01/88.jpeg",
+    "image_url": "https://i.ytimg.com/vi/U7BygRXhWBY/hqdefault.jpg" ,
     "title": "Narwhal swimming",
     "description": "A narwhal swimming with the light shining through the water",
     "keyword": "narwhal",
@@ -76,8 +76,11 @@
     "keyword": "unicorn",
     "horns": 1
   },
+
+
+  
   {
-    "image_url": "https://www.maxpixel.net/static/photo/1x/Sky-Head-Giraffe-Animal-Portrait-3430849.jpg",
+    "image_url": "https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1536772979/giraffe-south-africa-snow-SASNOW0918.jpg?itok=cXvsnzT9",
     "title": "Giraffe",
     "description": "This giraffe is as tall as the sky",
     "keyword": "giraffe",
