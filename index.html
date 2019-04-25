@@ -8,10 +8,17 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layouts.css">
   <link rel="stylesheet" href="css/modules.css">
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js> </script> </head> <body>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js> </script>
+  </head>
+  <body>
+
   <h1>Gallery of Horns</h1>
-  <input name=herdSelector type=radio value=herd1>Herd 1</br>
-  <input name=herdSelector type=radio value=herd2>Herd 2</br>
+
+  <div id="herdSelectorDiv">
+    <div><input name=herdSelector type=radio value=herd1>&nbsp;Herd 1</div>
+    <div><input name=herdSelector type=radio value=herd2>&nbsp;Herd 2</div>
+  </div>
+
   <div><select id="selector">Filter By Keyword</select></div>
 
   <div id="images"></div>
