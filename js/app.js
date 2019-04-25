@@ -2,32 +2,29 @@
 let dataArray = [];
 let keywordArray = [];
 
+function ImageObj(description, horns, image_url, keyword, title) {
+  this.description = description;
+  this.horns = horns;
+  this.image_url = image_url;
+  this.keyword = keyword;
+  this.title = title;
+
+  dataArray.push(this);
+}
+
 $.getJSON('../data/page-1.json', function (element) {
   for (let i = 0; i < element.length; i++) {
-
-    let dataObject = {};
-
-    dataObject.description = element[i].description;
-    dataObject.horns = element[i].horns;
-    dataObject.image_url = element[i].image_url;
-    dataObject.keyword = element[i].keyword;
-    dataObject.title = element[i].title;
-
-    dataArray[i] = dataObject;
+    new ImageObj(element[i].description, element[i].horns, element[i].image_url, element[i].keyword, element[i].title);
   }
-
   populateHTML();
   populateDropDown();
 
-
 });
-
-// $.('#selector').// populate the selector dropdown with options
-
 
 function populateHTML() {
   for (let i = 0; i < dataArray.length; i++) {
 
+    //This will become handlebars
     let imageString = `<img src="${dataArray[i].image_url}" title="${dataArray[i].title}" alt="${dataArray[i].description}" class="${dataArray[i].keyword}"/>`;
     $('#images').append(imageString);
 
