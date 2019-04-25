@@ -28,6 +28,7 @@ $.getJSON('../data/page-1.json', function (element) {
 function populateHTML() {
   for (let i = 0; i < dataArray.length; i++) {
 
+    //This will become handlebars
     let imageString = `<img src="${dataArray[i].image_url}" title="${dataArray[i].title}" alt="${dataArray[i].description}" class="${dataArray[i].keyword}"/>`;
     $('#images').append(imageString);
 
