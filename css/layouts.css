@@ -1,5 +1,25 @@
 select {
   margin-top: 15px;
   background-color: white;
+}
 
+#herdSelectorDiv {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  margin-top: 2.5%;
+
+}
+
+#herdSelectorDiv div {
+  vertical-align: middle;
+  font-family: 'Source Code Pro', monospace;
+  color: brown;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#herdSelectorDiv input {
+  vertical-align: middle;
 }
