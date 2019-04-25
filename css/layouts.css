@@ -17,9 +17,21 @@ select {
   font-family: 'Source Code Pro', monospace;
   color: brown;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 20px;
 }
 
 #herdSelectorDiv input {
+  vertical-align: middle;
+}
+
+#selector {
+  font-size: 1.2em;
+}
+
+#sortSelector {
+  margin-left: 5px;
+}
+
+div select {
   vertical-align: middle;
 }

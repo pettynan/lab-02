@@ -19,8 +19,7 @@ $.getJSON('../data/page-1.json', function (element) {
   for (let i = 0; i < element.length; i++) {
     new ImageObj(element[i].description, element[i].horns, element[i].image_url, element[i].keyword, element[i].title, 1);
   }
-  console.log(dataArray1);
-  populateHTML(1);
+  populateHTML();
   populateDropDown();
 });
 
@@ -29,14 +28,37 @@ $.getJSON('../data/page-2.json', function (element) {
   for (let i = 0; i < element.length; i++) {
     new ImageObj(element[i].description, element[i].horns, element[i].image_url, element[i].keyword, element[i].title, 2);
   }
-  console.log(dataArray2);
 });
 
-function populateHTML(herdNum) {
+function sortByTitle(arr) {
+  arr.sort( (a, b) => {
+    return a.title.localeCompare( b.title);
+  });
+  return arr;
+}
+
+function sortByHorns(arr) {
+  arr.sort( (a, b) => {
+    return a.horns - b.horns;
+  });
+  return arr;
+}
+
+
+function populateHTML() {
   keywordArray = [];
-  if (herdNum === 1) {
+  $('#images').empty();
+  if ($('input')[0].checked) {
     dataArray = dataArray1;
-  } else {dataArray = dataArray2;}
+  } else {
+    dataArray = dataArray2;
+  }
+
+  if ($('#sortSelector')[0].value === 'sortByTitle') {
+    dataArray = sortByTitle(dataArray);
+  } else {
+    dataArray = sortByHorns(dataArray);
+  }
 
   for (let i = 0; i < dataArray.length; i++) {
 
@@ -51,8 +73,8 @@ function populateHTML(herdNum) {
 
 function populateDropDown() {
   $('#selector').empty();
-  // TODO: fix behavior when an animal is selected and then 'Select a Filter' is reselected.
-  $('#selector').append(`<option value="Select a Filter">Select a Filter</option>`);
+  // TODO: fix behavior when an animal is selected and then 'Select an Animal' is reselected.
+  $('#selector').append(`<option value="Select an Animal">Select an Animal</option>`);
 
   for (let i = 0; i < keywordArray.length; i++) {
     let optionString = `<option value="${keywordArray[i]}">${keywordArray[i]}</option>`;
@@ -67,14 +89,15 @@ function dropDownOnClickHandler(e) {
   $(`.${e.target.options[e.target.selectedIndex].value}`).show();
 }
 
+
+// Sort By... Event Listener
+$('#sortSelector').on('change', populateHTML);
+
 //Pagination Feature Event Listener
 $('input').on('input', herdRadioHandler);
 
-function herdRadioHandler(e) {
-  console.log('', e.target.value);
+function herdRadioHandler() {
   $('#images').empty();
-  if (e.target.value === 'herd1') {
-    populateHTML(1);
-  } else {populateHTML(2);}
+  populateHTML();
   populateDropDown();
 }
