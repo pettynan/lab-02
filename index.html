@@ -8,10 +8,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layouts.css">
   <link rel="stylesheet" href="css/modules.css">
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js></script>
-</head>
-
-<body>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js> </script> </head> <body>
   <h1>Gallery of Horns</h1>
   <input name=herdSelector type=radio value=herd1>Herd 1</br>
   <input name=herdSelector type=radio value=herd2>Herd 2</br>
@@ -21,6 +18,9 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/app.js"></script>
-</body>
+  <script type="text/x-handlebars-template" id="img-template">
+  <img src={{image_url}} title={{title}} alt={{description}}  class={{keyword}}>  
+  </script>
+  </body>
 
 </html>

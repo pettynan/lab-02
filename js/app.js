@@ -40,9 +40,8 @@ function populateHTML(herdNum) {
 
   for (let i = 0; i < dataArray.length; i++) {
 
-    //This will become handlebars
-    let imageString = `<img src="${dataArray[i].image_url}" title="${dataArray[i].title}" alt="${dataArray[i].description}" class="${dataArray[i].keyword}"/>`;
-    $('#images').append(imageString);
+    const imgRenderer = Handlebars.compile($('#img-template').text());
+    $('#images').append(imgRenderer(dataArray[i]));
 
     if (!keywordArray.includes(dataArray[i].keyword)) {
       keywordArray.push(dataArray[i].keyword);
@@ -68,9 +67,9 @@ function dropDownOnClickHandler(e) {
   $(`.${e.target.options[e.target.selectedIndex].value}`).show();
 }
 
-//radio event listeners herd1 + herd2
+//Pagination Feature Event Listener
 $('input').on('input', herdRadioHandler);
-// event handler to load
+
 function herdRadioHandler(e) {
   console.log('', e.target.value);
   $('#images').empty();
