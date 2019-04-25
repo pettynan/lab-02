@@ -33,6 +33,7 @@ $.getJSON('../data/page-2.json', function (element) {
 });
 
 function populateHTML(herdNum) {
+  keywordArray = [];
   if (herdNum === 1) {
     dataArray = dataArray1;
   } else {dataArray = dataArray2;}
@@ -50,7 +51,7 @@ function populateHTML(herdNum) {
 }
 
 function populateDropDown() {
-
+  $('#selector').empty();
   // TODO: fix behavior when an animal is selected and then 'Select a Filter' is reselected.
   $('#selector').append(`<option value="Select a Filter">Select a Filter</option>`);
 
@@ -68,9 +69,13 @@ function dropDownOnClickHandler(e) {
 }
 
 //radio event listeners herd1 + herd2
-$('#images').on('input', herdRadioHandler);
+$('input').on('input', herdRadioHandler);
 // event handler to load
 function herdRadioHandler(e) {
+  console.log('', e.target.value);
   $('#images').empty();
-  $().show();
+  if (e.target.value === 'herd1') {
+    populateHTML(1);
+  } else {populateHTML(2);}
+  populateDropDown();
 }
